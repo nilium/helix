@@ -170,6 +170,7 @@ impl EditorView {
             &mut line_decorations,
         );
 
+        Self::render_rulers(editor, doc, view, inner, surface, theme);
         if is_focused {
             let cursor = doc
                 .selection(view.id)
@@ -193,7 +194,6 @@ impl EditorView {
             &mut line_decorations,
             &mut translated_positions,
         );
-        Self::render_rulers(editor, doc, view, inner, surface, theme);
 
         // if we're not at the edge of the screen, draw a right border
         if viewport.right() != view.area.right() {
